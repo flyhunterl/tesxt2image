@@ -1,0 +1,12 @@
+{
+    "imgrender_token": "",
+    "background_url": "",
+    "image_height": 1600,
+    "min_text_length": 200,
+    "enable_markdown_format": true,
+    "auto_height": true,
+    "fixed_height": 1600,
+    "min_height": 400,
+    "max_height": 2480,
+    "height_per_100_chars": 400
+}
