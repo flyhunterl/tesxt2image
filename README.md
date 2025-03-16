@@ -34,6 +34,13 @@
 | min_height | 整数 | 400 | 自动计算时的最小高度（像素） |
 | max_height | 整数 | 2480 | 自动计算时的最大高度（像素） |
 | height_per_100_chars | 整数 | 400 | 每100字符对应的高度（像素） |
+| text_x | 整数 | 70 | 文字X轴坐标（像素） |
+| text_y | 整数 | 80 | 文字Y轴坐标（像素） |
+| text_width | 整数 | 660 | 文字区域宽度（像素） |
+| font_name | 字符串 | "SourceHanSansSC-Regular" | 字体名称 |
+| font_size | 整数 | 32 | 字体大小（像素） |
+| font_color | 字符串 | "#333333" | 字体颜色（十六进制） |
+| line_height | 整数 | 48 | 行高（像素） |
 
 ## 配置示例
 
@@ -47,7 +54,14 @@
     "fixed_height": 1600,
     "min_height": 400,
     "max_height": 2480,
-    "height_per_100_chars": 400
+    "height_per_100_chars": 400,
+    "text_x": 70,
+    "text_y": 80,
+    "text_width": 660,
+    "font_name": "SourceHanSansSC-Regular",
+    "font_size": 32,
+    "font_color": "#333333",
+    "line_height": 48
 }
 ```
 
@@ -81,10 +95,6 @@
 - 需要有效的imgrender API token才能使用本插件
 - 建议使用分辨率适中的背景图片，避免文件过大
 - 如果文本包含大量的换行，可能需要调整height_per_100_chars参数
-
-## 许可证
-
-MIT License
 
 ## 获取imgrender Token
 
@@ -122,6 +132,41 @@ MIT License
 - 问题反馈：请在GitHub提交Issue
 
 
+## 支持的字体
+
+插件支持多种字体，按类型分类如下：
+
+### 1. 书法字体
+- jiangxizhuokai（江西拙楷）
+- slideyouran（演示悠然小楷）
+
+### 2. 思源黑体系列
+- SourceHanSansSC-Heavy（思源黑体-特粗）
+- SourceHanSansSC-Bold（思源黑体-粗）
+- SourceHanSansSC-Medium（思源黑体-中等）
+- SourceHanSansSC-Regular（思源黑体-常规）
+- SourceHanSansSC-Normal（思源黑体-标准）
+- SourceHanSansSC-Light（思源黑体-细）
+- SourceHanSansSC-ExtraLight（思源黑体-特细）
+
+### 3. 思源宋体系列
+- SourceHanSerifCN-Heavy（思源宋体-特粗）
+- SourceHanSerifCN-Bold（思源宋体-粗）
+- SourceHanSerifCN-SemiBold（思源宋体-半粗）
+- SourceHanSerifCN-Medium（思源宋体-中等）
+- SourceHanSerifCN-Regular（思源宋体-常规）
+- SourceHanSerifCN-Light（思源宋体-细）
+- SourceHanSerifCN-ExtraLight（思源宋体-特细）
+
+### 4. 阿里巴巴普惠体系列
+- Alibaba-PuHuiTi-Heavy（阿里巴巴普惠体-特粗）
+- Alibaba-PuHuiTi-Bold（阿里巴巴普惠体-粗）
+- Alibaba-PuHuiTi-Medium（阿里巴巴普惠体-中等）
+- Alibaba-PuHuiTi-Regular（阿里巴巴普惠体-常规）
+- Alibaba-PuHuiTi-Light（阿里巴巴普惠体-细）
+
 ## 打赏
 **您的打赏能让我在下一顿的泡面里加上一根火腿肠。**
 ![20250314_125818_133_copy](https://github.com/user-attachments/assets/33df0129-c322-4b14-8c41-9dc78618e220)
+
+

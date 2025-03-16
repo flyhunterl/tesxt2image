@@ -8,5 +8,12 @@
     "fixed_height": 1600,
     "min_height": 400,
     "max_height": 2480,
-    "height_per_100_chars": 400
+    "height_per_100_chars": 400,
+    "text_x": 70,
+    "text_y": 80,
+    "text_width": 660,
+    "font_name": "SourceHanSansSC-Regular",
+    "font_size": 32,
+    "font_color": "#333333",
+    "line_height": 48
 }

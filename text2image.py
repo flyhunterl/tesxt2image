@@ -41,7 +41,14 @@ class Text2Image(Plugin):
                 "fixed_height": 800,  # 固定高度模式下使用的高度
                 "min_height": 400,  # 最小图片高度
                 "max_height": 2480,  # 最大图片高度，imgrender限制最大为2480
-                "height_per_100_chars": 400  # 每100字符对应的高度
+                "height_per_100_chars": 400,  # 每100字符对应的高度
+                "text_x": 70,  # 文字X轴坐标
+                "text_y": 80,  # 文字Y轴坐标
+                "text_width": 660,  # 文字宽度
+                "font_name": "SourceHanSansSC-Regular",  # 字体名称
+                "font_size": 32,  # 字体大小
+                "font_color": "#333333",  # 字体颜色
+                "line_height": 48  # 行高
             }
 
     def on_decorate_reply(self, e_context):
@@ -173,7 +180,15 @@ class Text2Image(Plugin):
             # 使用正确的 API 端点和认证方式
             api_url = "https://api.imgrender.cn/open/v1/pics"
             
-            # 调整为Apilot.py中使用的格式
+            # 从配置中获取文字坐标和字体设置
+            text_x = self.config.get("text_x", 70)
+            text_y = self.config.get("text_y", 80)
+            text_width = self.config.get("text_width", 660)
+            font_name = self.config.get("font_name", "SourceHanSansSC-Regular")
+            font_size = self.config.get("font_size", 32)
+            font_color = self.config.get("font_color", "#333333")
+            line_height = self.config.get("line_height", 48)
+        
             payload = {
                 "width": 800,
                 "height": image_height,
@@ -191,15 +206,15 @@ class Text2Image(Plugin):
                 ],
                 "texts": [
                     {
-                        "x": 70,
-                        "y": 80,
+                        "x": text_x,
+                        "y": text_y,
                         "text": formatted_text,
-                        "font": "SourceHanSansSC-Regular",
-                        "fontSize": 32,
-                        "color": "#333333",
-                        "width": 660,
+                        "font": font_name,
+                        "fontSize": font_size,
+                        "color": font_color,
+                        "width": text_width,
                         "textAlign": "left",
-                        "lineHeight": 48,
+                        "lineHeight": line_height,
                         "zIndex": 1
                     }
                 ]
