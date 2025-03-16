@@ -1,0 +1,12 @@
+{
+    "imgrender_token": "368045730897728843.7qEyE6f9V0gmSJPpYkTQ1FiPG9dduJwU",
+    "background_url": "https://www.llingfei.com/bj.jpg",
+    "image_height": 1600,
+    "min_text_length": 200,
+    "enable_markdown_format": true,
+    "auto_height": true,
+    "fixed_height": 1600,
+    "min_height": 400,
+    "max_height": 2480,
+    "height_per_100_chars": 400
+}
