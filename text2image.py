@@ -48,7 +48,9 @@ class Text2Image(Plugin):
                 "font_name": "SourceHanSansSC-Regular",  # 字体名称
                 "font_size": 32,  # 字体大小
                 "font_color": "#333333",  # 字体颜色
-                "line_height": 48  # 行高
+                "line_height": 48,  # 行高
+                "blacklist_keywords": [],
+                "whitelist_keywords": []
             }
 
     def on_decorate_reply(self, e_context):
@@ -60,11 +62,27 @@ class Text2Image(Plugin):
         if not content or not isinstance(content, str):
             return
 
-        # 检查文本长度是否超过设定值
-        if len(content) < self.config.get("min_text_length", 100):
+        # 检查是否包含黑名单关键词
+        blacklist_keywords = self.config.get("blacklist_keywords", [])
+        for keyword in blacklist_keywords:
+            if keyword in content:
+                logger.info(f"[Text2Image] 检测到黑名单关键词 '{keyword}'，保持文字输出")
+                return
+
+        # 检查是否包含白名单关键词
+        whitelist_keywords = self.config.get("whitelist_keywords", [])
+        has_whitelist_keyword = False
+        for keyword in whitelist_keywords:
+            if keyword in content:
+                has_whitelist_keyword = True
+                logger.info(f"[Text2Image] 检测到白名单关键词 '{keyword}'，将转换为图片")
+                break
+
+        # 如果不在白名单中，检查文本长度是否超过设定值
+        if not has_whitelist_keyword and len(content) < self.config.get("min_text_length", 100):
             return
 
-        logger.info(f"[Text2Image] 检测到长文本回复，长度为 {len(content)}，准备转换为图片")
+        logger.info(f"[Text2Image] 检测到需要转换为图片的文本，长度为 {len(content)}")
         
         try:
             # 调用 imgrender 服务将文本转换为图片

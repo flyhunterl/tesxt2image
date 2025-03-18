@@ -2,7 +2,7 @@
 
 
 
-一个用于将ChatGPT长文本回复转换为图片的插件，支持简单的Markdown格式渲染。
+一个用于将DOW长文本回复转换为图片的插件，支持简单的Markdown格式渲染。
 
 ## 功能特点
 
@@ -41,6 +41,8 @@
 | font_size | 整数 | 32 | 字体大小（像素） |
 | font_color | 字符串 | "#333333" | 字体颜色（十六进制） |
 | line_height | 整数 | 48 | 行高（像素） |
+| whitelist_keywords | 列表 | [] | 白名单关键词列表 |
+| blacklist_keywords | 列表 | [] | 黑名单关键词列表 |
 
 ## 配置示例
 
@@ -61,9 +63,23 @@
     "font_name": "SourceHanSansSC-Regular",
     "font_size": 32,
     "font_color": "#333333",
-    "line_height": 48
+    "line_height": 48,
+    "whitelist_keywords": ["图片", "照片", "截图"],
+    "blacklist_keywords": ["代码", "程序", "源码"]
 }
 ```
+
+## 关键词过滤功能
+
+插件支持通过白名单和黑名单关键词来控制文本的处理方式：
+
+- `whitelist_keywords`：白名单关键词列表，包含这些关键词的文本将始终转换为图片，不受字数限制
+- `blacklist_keywords`：黑名单关键词列表，包含这些关键词的文本将始终保持文字输出，不转换为图片
+
+处理优先级：
+1. 如果文本包含黑名单关键词 → 保持文字输出
+2. 如果文本包含白名单关键词 → 转换为图片
+3. 如果文本既不在黑名单也不在白名单中 → 检查文本长度，超过设定值则转换为图片
 
 ## Markdown支持
 
