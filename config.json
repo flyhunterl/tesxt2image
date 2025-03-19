@@ -17,5 +17,6 @@
     "font_color": "#333333",
     "line_height": 48,
     "whitelist_keywords": ["图片", "照片", "截图"],
-    "blacklist_keywords": ["代码", "程序", "源码"]
+    "blacklist_keywords": ["代码", "程序", "源码"],
+    "emoji_display_mode": "text"
 }

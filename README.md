@@ -43,6 +43,7 @@
 | line_height | 整数 | 48 | 行高（像素） |
 | whitelist_keywords | 列表 | [] | 白名单关键词列表 |
 | blacklist_keywords | 列表 | [] | 黑名单关键词列表 |
+| emoji_display_mode | 字符串 | "text" | 表情显示模式："native"(原生emoji)、"text"(保留文本格式)、"description"(转为文字描述) |
 
 ## 配置示例
 
@@ -65,9 +66,20 @@
     "font_color": "#333333",
     "line_height": 48,
     "whitelist_keywords": ["图片", "照片", "截图"],
-    "blacklist_keywords": ["代码", "程序", "源码"]
+    "blacklist_keywords": ["代码", "程序", "源码"],
+    "emoji_display_mode": "text"
 }
 ```
+
+## 表情符号处理
+
+插件支持三种不同的表情符号处理模式，通过 `emoji_display_mode` 配置项设置：
+
+- `text`：保留微信表情文本形式，如 `[憨笑]`。这是默认模式，适用于字体不支持 emoji 的情况。
+- `native`：将微信表情文本转换为原生 emoji 表情符号。如果渲染字体支持 emoji，建议使用此模式。
+- `description`：将微信表情文本转换为文字描述，如 `(憨笑)`。当字体不支持 emoji 且希望更简洁的显示方式时可选用。
+
+由于 imgrender API 和某些字体对表情符号的支持有限，选择合适的模式可以避免表情符号显示为方框（□）。
 
 ## 关键词过滤功能
 
